@@ -6,12 +6,12 @@ library(RColorBrewer)
 #set your working directory here
 setwd("")
 
-#download from https://www.gapminder.org/data/, and save to /data folder
+#download the relevant files from https://www.gapminder.org/data/, and save to /data folder
 gdp_w <- read.csv("data/income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
 mort_w <- read.csv("data/child_mortality_0_5_year_olds_dying_per_1000_born.csv")
 pop_w <- read.csv("data/population_total.csv")
 
-#make data from wide to long
+#get data from wide to long
 gdp <- gather(gdp_w, Year, gdp, starts_with("X"))
 mort <- gather(mort_w, Year, mort, starts_with("X"))
 pop <- gather(pop_w, Year, pop, starts_with("X"))
@@ -39,7 +39,7 @@ data$continent <- countrycode(sourcevar = data[, "country"],
 							  origin = "country.name",
 							  destination = "continent")
 
-#set the color scale here
+#set the color scale
 colourCount = length(unique(data$mort))
 getPalette = colorRampPalette(brewer.pal(9, "Blues"))
 
