@@ -60,6 +60,7 @@ map <-   ggplot(data, aes(x = lgdp, y = mort)) +
 	transition_time(year) +	
 	labs(subtitle = paste('Year: {frame_time}'))
 
+#save in the output/ folder
 anim_save("output/cmort.gif", map, end_pause=12, width = 600, height = 550, duration=22, nframes=220)
 
 
